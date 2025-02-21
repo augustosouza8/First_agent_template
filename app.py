@@ -35,7 +35,11 @@ def get_current_time_in_timezone(timezone: str) -> str:
 
 @tool
 def calculator(a: int, b: int) -> int:
-    """Multiply two integers."""
+    """Multiply two integers.
+    Args:
+        a: an integer
+        b: another integer
+    """
     return a * b
 
 
