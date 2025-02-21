@@ -93,5 +93,8 @@ agent = CodeAgent(
     prompt_templates=prompt_templates
 )
 
+print(calculator3.name)
+print(calculator3.description)
+print(agent.tools)
 
 GradioUI(agent).launch()
