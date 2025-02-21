@@ -51,6 +51,16 @@ def calculator2(a: int, b: int) -> int:
     """
     return a / b
 
+@tool
+def calculator3(a: int, b: int, c: int) -> int:
+    """multiply three integers.
+    Args:
+        a: an integer
+        b: another integer
+        c: another integer
+    """
+    return a * b * c
+
 final_answer = FinalAnswerTool()
 
 # If the agent does not answer, the model is overloaded, please use another model or the following Hugging Face Endpoint that also contains qwen2.5 coder:
@@ -73,7 +83,7 @@ with open("prompts.yaml", 'r') as stream:
     
 agent = CodeAgent(
     model=model,
-    tools=[final_answer, image_generation_tool, calculator1, calculator2, get_current_time_in_timezone],  ## add your tools here (don't remove final answer)
+    tools=[final_answer, image_generation_tool, calculator1, calculator2, calculator3, get_current_time_in_timezone],  ## add your tools here (don't remove final answer)
     max_steps=6,
     verbosity_level=1,
     grammar=None,
