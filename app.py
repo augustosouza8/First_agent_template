@@ -34,7 +34,7 @@ def get_current_time_in_timezone(timezone: str) -> str:
         return f"Error fetching time for timezone '{timezone}': {str(e)}"
 
 @tool
-def calculator(a: int, b: int) -> int:
+def calculator1(a: int, b: int) -> int:
     """Multiply two integers.
     Args:
         a: an integer
@@ -42,6 +42,14 @@ def calculator(a: int, b: int) -> int:
     """
     return a * b
 
+@tool
+def calculator2(a: int, b: int) -> int:
+    """divide two integers.
+    Args:
+        a: an integer
+        b: another integer
+    """
+    return a / b
 
 final_answer = FinalAnswerTool()
 
@@ -65,7 +73,7 @@ with open("prompts.yaml", 'r') as stream:
     
 agent = CodeAgent(
     model=model,
-    tools=[final_answer, image_generation_tool, calculator, get_current_time_in_timezone],  ## add your tools here (don't remove final answer)
+    tools=[final_answer, image_generation_tool, calculator1, calculator2, get_current_time_in_timezone],  ## add your tools here (don't remove final answer)
     max_steps=6,
     verbosity_level=1,
     grammar=None,
